@@ -49,6 +49,15 @@ li a:hover {
 .movcontainer {
     margin-left: 10%;
     margin-right: 10%;
+    padding: 2%;
+}
+
+.container-bg {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    padding: 2%;
+    background-color: whitesmoke;
 }
 
 
@@ -135,13 +144,13 @@ li a:hover {
 /* TEXTBOX, LABELS, DROPDOWNLIST, CHECKBOX */
 
 .parkingCB {
-    max-width: 100px;
+    width: 100px;
     margin-left: 5%;
     margin-bottom: 2%;
 }
 
 .parkingspaceCB {
-    max-width: 100px;
+    width: 100px;
     margin-left: 10%;
     margin-bottom: 2%;
 }
@@ -149,12 +158,12 @@ li a:hover {
 .label {
     font-size: 20px;
     display: inline-block;
-    color: black;
+    color: white;
     text-align: justify;
 }
 
 .labelz {
-    width: 150px;
+    width: 100px;
     display: inline-block;
     padding: 5px 5px;
     margin-bottom: 5px;

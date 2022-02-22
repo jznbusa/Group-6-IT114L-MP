@@ -9,17 +9,17 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>  
-    <center>
-        <nav id="nav">
+<body>
+    <nav id="nav">
     <ul>  
-        <li><a href="WebForm1.aspx">CART</a></li>
+        <li><a href="Cart.aspx">CART</a></li>
         <li><a href="Movies.aspx">MOVIES</a></li>  
         <li><a href="Account.aspx">ACCOUNT</a></li>  
         <li><a href="AboutUs.aspx">ABOUT US</a></li>
-    </ul>
-        </nav>  
-    </center>
+    </ul>>
+        <asp:Label ID="Label1" runat="server" Text="Welcome," style="color: gold; margin-left: 5%;"></asp:Label>
+        <asp:Label ID="UsernameLBL" runat="server" Text="User" style="color: gold;"></asp:Label>
+    </nav>  
    
 
   

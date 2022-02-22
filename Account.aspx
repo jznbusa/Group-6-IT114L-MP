@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <form runat="server" class="container">
         <center>
             <h1> My Account</h1>
             </center>
@@ -26,9 +26,12 @@
             </asp:DropDownList>
          <br />
             <asp:Label ID="Label6" runat="server" Text="Address" CssClass="labelz"></asp:Label>
-            <asp:TextBox ID="TextBox1" runat="server" CssClass="textboxAddress"></asp:TextBox>
+            <asp:TextBox ID="Address" runat="server" CssClass="textboxAddress"></asp:TextBox>
         </div>
-            <asp:Button ID="Save" runat="server" Text="Save"/>
+        <center>
+            <asp:Button ID="Save" runat="server" Text="Save" class="button" OnClick="Save_Click"/>
             <asp:Button ID="Back" runat="server" Text="Back to Main" class="button"/>
-    </div>
+        </center>
+            
+    </form>
 </asp:Content>

@@ -11,7 +11,10 @@ namespace Group_6_IT114L_MP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["usermail"] != null)
+            {
+                ((Label)Master.FindControl("UsernameLBL")).Text = Session["usermail"].ToString();
+            }
         }
     }
 }

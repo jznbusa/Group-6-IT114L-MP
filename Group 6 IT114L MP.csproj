@@ -69,7 +69,7 @@
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
     <Content Include="Account.aspx" />
-    <Content Include="BuyTicket.aspx" />
+    <Content Include="AppData\Cinema.mdb" />
     <Content Include="Cart.aspx" />
     <Content Include="FirstPage.aspx" />
     <Content Include="img\batman.jpg" />
@@ -103,13 +103,6 @@
     </Compile>
     <Compile Include="Account.aspx.designer.cs">
       <DependentUpon>Account.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BuyTicket.aspx.cs">
-      <DependentUpon>BuyTicket.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BuyTicket.aspx.designer.cs">
-      <DependentUpon>BuyTicket.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
@@ -187,9 +180,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AppData\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

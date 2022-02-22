@@ -26,15 +26,19 @@
             <asp:Label ID="Label5" runat="server" Text="Payment Method" CssClass="labelz"></asp:Label>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="DropDownList1"><span style="color: red;">*</span></asp:RequiredFieldValidator>
             <asp:DropDownList ID="DropDownList1" runat="server" CssClass="dropdown" AutoPostBack="True">
+                <asp:ListItem>Select payment method</asp:ListItem>
                 <asp:ListItem>Cash</asp:ListItem>
                 <asp:ListItem>Credit Card</asp:ListItem>
             </asp:DropDownList>
          <br />
             <asp:Label ID="Label6" runat="server" Text="Address" CssClass="labelz"></asp:Label>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="Passw"><span style="color: red;">*</span></asp:RequiredFieldValidator>
-            <asp:TextBox ID="TextBox1" runat="server" CssClass="textboxAddress"></asp:TextBox>
+            <asp:TextBox ID="Address" runat="server" CssClass="textboxAddress"></asp:TextBox>
         </div>
+        <center>
             <asp:Button ID="Register" runat="server" Text="Register" class="button" OnClick="Register_Click"/>
             <asp:Button ID="Cancel" runat="server" Text="Cancel" class="button" OnClick="Cancel_Click"/>
+        </center>
+            
     </div>
 </asp:Content>

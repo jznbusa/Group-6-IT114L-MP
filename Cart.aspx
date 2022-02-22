@@ -6,9 +6,9 @@
         <center>
             <h1>My Cart</h1>
             <asp:GridView ID="GridView1" runat="server" CssClass="mydatagrid"></asp:GridView>
-            
-        </center>
+
         <asp:Button ID="Purchase" runat="server" Text="Purchase" class="button"/>
         <asp:Button ID="Back" runat="server" Text="Back to Main" class="button"/>
+            </center>
         </form>
 </asp:Content>

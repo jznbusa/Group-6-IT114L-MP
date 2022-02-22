@@ -6,7 +6,7 @@
         <center>
             <h1> Sign In</h1>
         </center>
-        <div class="signcontainer">
+        <div class="movcontainer">
             <asp:Label ID="Label3" runat="server" Text="Email" CssClass="labelz"></asp:Label>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Email"><span style="color: red;">*</span></asp:RequiredFieldValidator>
             <asp:TextBox ID="Email" runat="server" CssClass="textbox"></asp:TextBox>
@@ -16,8 +16,10 @@
             <asp:TextBox ID="Passw" runat="server" CssClass="textbox"></asp:TextBox>
          <br />
         </div>
-            <asp:Button ID="Register" runat="server" Text="Register" class="button" OnClick="Register_Click"/>
+        <center>
+            <br />
+            <asp:Button ID="Login" runat="server" Text="Log in" class="button" OnClick="Login_Click"/>
             <asp:Button ID="Cancel" runat="server" Text="Cancel" class="button" OnClick="Cancel_Click"/>
-
+        </center>
     </div>
 </asp:Content>
