@@ -144,16 +144,10 @@ li a:hover {
 /* TEXTBOX, LABELS, DROPDOWNLIST, CHECKBOX */
 
 .parkingCB {
-    width: 100px;
     margin-left: 5%;
     margin-bottom: 2%;
 }
 
-.parkingspaceCB {
-    width: 100px;
-    margin-left: 10%;
-    margin-bottom: 2%;
-}
 
 .label {
     font-size: 20px;

@@ -30,7 +30,7 @@
         </div>
         <center>
             <asp:Button ID="Save" runat="server" Text="Save" class="button" OnClick="Save_Click"/>
-            <asp:Button ID="Back" runat="server" Text="Back to Main" class="button"/>
+            <asp:Button ID="Back" runat="server" Text="Back to Main" class="button" OnClick="Back_Click"/>
         </center>
             
     </form>
