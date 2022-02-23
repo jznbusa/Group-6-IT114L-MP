@@ -21,7 +21,7 @@
         <br />
             <asp:Label ID="Label4" runat="server" Text="Password" CssClass="labelz"></asp:Label>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Passw"><span style="color: red;">*</span></asp:RequiredFieldValidator>
-            <asp:TextBox ID="Passw" runat="server" CssClass="textbox"></asp:TextBox>
+            <asp:TextBox ID="Passw" runat="server" CssClass="textbox" TextMode="Password"></asp:TextBox>
         <br />
             <asp:Label ID="Label5" runat="server" Text="Payment Method" CssClass="labelz"></asp:Label>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="DropDownList1"><span style="color: red;">*</span></asp:RequiredFieldValidator>

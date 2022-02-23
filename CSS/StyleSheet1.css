@@ -164,6 +164,8 @@ li a:hover {
     margin-left: 20px;
 }
 
+
+
 .textbox {
     margin-left: 1%;
     width: 200px;
@@ -224,4 +226,3 @@ img {
     .align {
         width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
     }
-

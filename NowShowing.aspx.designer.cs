@@ -141,6 +141,15 @@ namespace Group_6_IT114L_MP
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
+        /// MovieWarning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MovieWarning;
+
+        /// <summary>
         /// MovieDDL control.
         /// </summary>
         /// <remarks>

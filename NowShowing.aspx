@@ -39,6 +39,7 @@
             <div class="container">
                 
                 <asp:Label ID="Label4" runat="server" Text="Movie" CssClass="labelz"></asp:Label>
+                <asp:Label ID="MovieWarning" runat="server"><span style="color: red;">*</span></asp:Label>
                 <asp:DropDownList ID="MovieDDL" runat="server" CssClass="dropdown">
                     <asp:ListItem>Select a movie</asp:ListItem>
                     <asp:ListItem>Spider-Man: No Way Home</asp:ListItem>
@@ -83,7 +84,6 @@
         </center>
             <asp:Label ID="Label2" runat="server" Text="Total" CssClass="labelz"></asp:Label>
             <asp:TextBox ID="Total" runat="server" CssClass="textbox" ReadOnly="true"></asp:TextBox>
-            <br /><br />
             <center>
                 <asp:Button ID="Purchase" runat="server" Text="Purchase" class="button" OnClick="Purchase_Click"/>
                 <asp:Button ID="Cancel" runat="server" Text="Cancel" class="button" OnClick="Cancel_Click"/>

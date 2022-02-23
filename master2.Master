@@ -16,7 +16,8 @@
         <li><a href="Movies.aspx">MOVIES</a></li>  
         <li><a href="Account.aspx">ACCOUNT</a></li>  
         <li><a href="AboutUs.aspx">ABOUT US</a></li>
-    </ul>>
+        <li><a href="FirstPage.aspx">SIGN OUT</a></li>
+    </ul>
         <asp:Label ID="Label1" runat="server" Text="Welcome," style="color: gold; margin-left: 5%;"></asp:Label>
         <asp:Label ID="UsernameLBL" runat="server" Text="User" style="color: gold;"></asp:Label>
     </nav>  
