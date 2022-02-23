@@ -11,19 +11,16 @@ namespace Group_6_IT114L_MP
 {
     public partial class Cart : System.Web.UI.Page
     {
-        DataTable tb = new DataTable();
-        DataRow dr;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["usermail"] != null)
             {
                 ((Label)Master.FindControl("UsernameLBL")).Text = Session["usermail"].ToString();
-                
-                if()
+                DisplayTotal();
             }
         }
-        // Display the ticket purchased
-        private void Show()
+        protected void Purchase_Click(object sender, EventArgs e)
         {
             using (OleDbConnection xConn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; " +
                 "Data Source=" + Server.MapPath("~/AppData/Cinema.mdb")))
@@ -32,24 +29,41 @@ namespace Group_6_IT114L_MP
                 {
                     xCmd.Connection = xConn;
                     xConn.Open();
-                    xCmd.CommandText = "Select * from MovieChoice WHERE xEmail = '" + 
-                        Session["usermail"].ToString() + "';";
-                    OleDbDataReader xReader = xCmd.ExecuteReader();
-                    datata
+                    xCmd.CommandText = "DELETE FROM MovieChoice " +
+                        "WHERE User_email = '" + Session["usermail"].ToString() + "';";
+                    xCmd.ExecuteNonQuery();
+                }
+            }
+            Total.Text = "";
+            Response.Write("<script>alert('Purchase successful!');</script>");
+        }
 
+        protected void Back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Movies.aspx");
+        }
+
+        private void DisplayTotal()
+        {
+            using (OleDbConnection xConn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; " +
+                "Data Source=" + Server.MapPath("~/AppData/Cinema.mdb")))
+            {
+                using (OleDbCommand xCmd = new OleDbCommand())
+                {
+                    xCmd.Connection = xConn;
+                    xConn.Open();
+                    xCmd.CommandText = "SELECT Total FROM MovieChoice " +
+                        "WHERE User_email = '" + Session["usermail"].ToString() + "';";
+                    OleDbDataReader xReader = xCmd.ExecuteReader();
                     if (xReader.HasRows)
                     {
                         xReader.Read();
-                        Session["usermail"] = xReader["xEmail"].ToString();
-                    }
-                    else
-                    {
-                        
+                        Total.Text = xReader["Total"].ToString();
                     }
                     xReader.Close();
                 }
             }
-
+            
         }
     }
 }

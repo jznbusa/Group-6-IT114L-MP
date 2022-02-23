@@ -6,7 +6,7 @@
         <center>
             <h1>About Us</h1>
             <hr />
-            <p class="label">
+            <p>
                 Bringing you the best cinema experience!
             </p>
         </center>
