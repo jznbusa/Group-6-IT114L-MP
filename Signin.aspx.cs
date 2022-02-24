@@ -22,38 +22,36 @@ namespace Group_6_IT114L_MP
 
         protected void Login_Click(object sender, EventArgs e)
         {
-            using (OleDbConnection xConn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; " +
-                "Data Source=" + Server.MapPath("~/AppData/Cinema.mdb")))
-            {
-                using (OleDbCommand xCmd = new OleDbCommand())
-                {
-                    xCmd.Connection = xConn;
-                    xConn.Open();
-                    xCmd.CommandText = "SELECT * FROM [Users] WHERE xEmail = '"
-                        + Email.Text + "' AND xPassword = '" + Passw.Text + "';";
-                    OleDbDataReader xReader = xCmd.ExecuteReader();
-                    
-                    if (xReader.HasRows)
-                    {
-                        xReader.Read();
-                        Session["usermail"] = xReader["xEmail"].ToString(); 
-                        Response.Redirect("Movies.aspx");
-                    }
-                    else
-                    {
-                        Response.Write("<script>alert('Account does not exist!');</script>");
-                    }
-                    xReader.Close();
-                }
-            }
-            
             if (Email.Text == "AdminTest@gmail.com" || Passw.Text == "12345")
             {
                 Response.Redirect("Movies.aspx");
             }
-            else
+            else // Check if user account exists
             {
-                Response.Write("<script>alert('Admin Account does not exist!');</script>");
+                using (OleDbConnection xConn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; " +
+                    "Data Source=" + Server.MapPath("~/AppData/Cinema.mdb")))
+                {
+                    using (OleDbCommand xCmd = new OleDbCommand())
+                    {
+                        xCmd.Connection = xConn;
+                        xConn.Open();
+                        xCmd.CommandText = "SELECT * FROM [Users] WHERE xEmail = '"
+                            + Email.Text + "' AND xPassword = '" + Passw.Text + "';";
+                        OleDbDataReader xReader = xCmd.ExecuteReader();
+
+                        if (xReader.HasRows)
+                        {
+                            xReader.Read();
+                            Session["usermail"] = xReader["xEmail"].ToString(); 
+                            Response.Redirect("Movies.aspx");
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('Account does not exist!');</script>");
+                        }
+                        xReader.Close();
+                    }
+                }
             }
         }
     }
