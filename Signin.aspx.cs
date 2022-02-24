@@ -47,6 +47,14 @@ namespace Group_6_IT114L_MP
                 }
             }
             
+            if (Email.Text == "AdminTest@gmail.com" || Passw.Text == "12345")
+            {
+                Response.Redirect("Movies.aspx");
+            }
+            else
+            {
+                Response.Write("<script>alert('Admin Account does not exist!');</script>");
+            }
         }
     }
 }
