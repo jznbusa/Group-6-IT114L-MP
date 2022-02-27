@@ -7,7 +7,10 @@
             <h1 style="text-align: center;">Manage Accounts</h1> 
             </div>
                 <hr />
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="CustomerId" DataSourceID="SqlDataSource1">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="True" UpdateMode="Always">
+            <ContentTemplate>
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="CustomerId" DataSourceID="SqlDataSource1">
             <HeaderStyle BackColor="#ffcc00" Font-Bold="True" />
             <Columns>
                 <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" />
@@ -58,5 +61,44 @@
                     <asp:Parameter Name="CustomerId" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
+
+                <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+            <tr>
+                <td style="width: 140px">
+                    Lastname:<br />
+                    <asp:TextBox ID="LastTB" runat="server" Width="140" />
+                </td>
+                <td style="width: 140px">
+                    Firstname:<br />
+                    <asp:TextBox ID="FirstTB" runat="server" Width="140" />
+                </td>
+                <td style="width: 140px">
+                    Email:<br />
+                    <asp:TextBox ID="EmailTB" runat="server" Width="140" />
+                </td>
+                <td style="width: 140px">
+                    Password:<br />
+                    <asp:TextBox ID="PasswordTB" runat="server" Width="140" />
+                </td>
+                <td style="width: 140px">
+                    Payment:<br />
+                    <asp:DropDownList ID="PaymentDDL" runat="server" Width="140" AutoPostBack="True">
+                        <asp:ListItem>Select payment method</asp:ListItem>
+                        <asp:ListItem>Cash</asp:ListItem>
+                        <asp:ListItem>Credit Card</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+                <td style="width: 140px">
+                    Address:<br />
+                    <asp:TextBox ID="AddressTB" runat="server" Width="140" />
+                </td>
+                <td style="width: 140px">
+                    <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="Insert" />
+                </td>
+            </tr>
+        </table>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        
         </div>
 </asp:Content>

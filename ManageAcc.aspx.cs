@@ -15,5 +15,29 @@ namespace Group_6_IT114L_MP
         {
 
         }
+        protected void Insert(object sender, EventArgs e)
+        {
+            using (OleDbConnection xConn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; " +
+                "Data Source=" + Server.MapPath("~/AppData/Cinema.mdb")))
+            {
+                using (OleDbCommand xCmd = new OleDbCommand())
+                {
+                    xCmd.Connection = xConn;
+                    xCmd.CommandText = "INSERT INTO [Users] (xLastname, xFirstname, xEmail, xPassword, xPayment, xAddress) " +
+                        "VALUES (@xLastname, @xFirstname, @xEmail, @xPassword, @xPayment, @xAddress)";
+
+                    xCmd.Parameters.AddWithValue("@xLastname", LastTB.Text);
+                    xCmd.Parameters.AddWithValue("@xFirstname", FirstTB.Text);
+                    xCmd.Parameters.AddWithValue("@xEmail", EmailTB.Text);
+                    xCmd.Parameters.AddWithValue("@xPassword", PasswordTB.Text);
+                    xCmd.Parameters.AddWithValue("@xPayment", PaymentDDL.SelectedValue);
+                    xCmd.Parameters.AddWithValue("@xAddress", AddressTB.Text);
+
+                    xConn.Open();
+                    xCmd.ExecuteNonQuery();
+                }
+            }
+            Response.Redirect(Request.RawUrl);
+        }
     }
 }
