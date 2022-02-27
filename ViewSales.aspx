@@ -4,9 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <center> <h1>Sales report</h1> 
-
+            <hr />
         <div class="movcontainer">
-            <asp:GridView ID="GridView1" runat="server" DataSourceID="TicketSold" BackColor="#FFFFCC" BorderColor="#CC0000" ForeColor="#660033" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" >
+            <asp:GridView ID="GridView1" runat="server" DataSourceID="TicketSold" BackColor="#FFFFCC" BorderColor="#CC0000" ForeColor="#660033">
                     <EditRowStyle BackColor="#FFFF66" BorderColor="#993366" BorderStyle="Inset" />
                     <EmptyDataRowStyle BorderColor="#993366" BorderStyle="Inset" ForeColor="#990000" />
                     <HeaderStyle BackColor="#ffcc00" Font-Bold="True" BorderStyle="Inset" />
