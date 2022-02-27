@@ -78,6 +78,7 @@
     <Content Include="img\bg3.jpg" />
     <Content Include="img\lostcity.jpg" />
     <Content Include="img\turningred.jpg" />
+    <Content Include="ManageAcc.aspx" />
     <Content Include="Movies.aspx" />
     <Content Include="CSS\StyleSheet1.css" />
     <Content Include="img\junglecruise.jpg" />
@@ -87,6 +88,7 @@
     <Content Include="Signin.aspx" />
     <Content Include="Signup.aspx" />
     <Content Include="Upcoming.aspx" />
+    <Content Include="ViewSales.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -118,12 +120,26 @@
     <Compile Include="FirstPage.aspx.designer.cs">
       <DependentUpon>FirstPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageAcc.aspx.cs">
+      <DependentUpon>ManageAcc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageAcc.aspx.designer.cs">
+      <DependentUpon>ManageAcc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="master1.Master.cs">
       <DependentUpon>master1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="master1.Master.designer.cs">
       <DependentUpon>master1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="masterAdmin.Master.cs">
+      <DependentUpon>masterAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="masterAdmin.Master.designer.cs">
+      <DependentUpon>masterAdmin.Master</DependentUpon>
     </Compile>
     <Compile Include="Movies.aspx.cs">
       <DependentUpon>Movies.aspx</DependentUpon>
@@ -168,10 +184,18 @@
     <Compile Include="Upcoming.aspx.designer.cs">
       <DependentUpon>Upcoming.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewSales.aspx.cs">
+      <DependentUpon>ViewSales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSales.aspx.designer.cs">
+      <DependentUpon>ViewSales.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="master2.Master" />
     <Content Include="master1.Master" />
+    <Content Include="masterAdmin.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

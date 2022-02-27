@@ -226,3 +226,15 @@ img {
     .align {
         width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
     }
+
+    /* TABLE */
+    .tablehead {
+        background-color: gold;
+        font-weight: bold;
+        border: 1px solid black;
+    }
+
+    .tablerows {
+        border-bottom: 1px solid black;
+    }
+}

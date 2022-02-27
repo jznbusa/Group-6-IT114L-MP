@@ -25,8 +25,8 @@ namespace Group_6_IT114L_MP
                     using (OleDbCommand xCmd = new OleDbCommand())
                     {
                         xCmd.Connection = xConn;
-                        xCmd.CommandText = "INSERT INTO [Users] VALUES (@xLastname, @xFirstname, " +
-                            "@xEmail, @xPassword, @xPayment, @xAddress)";
+                        xCmd.CommandText = "INSERT INTO [Users] (xLastname, xFirstname, xEmail, xPassword, xPayment, xAddress) " +
+                            "VALUES (@xLastname, @xFirstname, @xEmail, @xPassword, @xPayment, @xAddress)";
 
                         xCmd.Parameters.AddWithValue("@xLastname", Lastname.Text);
                         xCmd.Parameters.AddWithValue("@xFirstname", Firstname.Text);

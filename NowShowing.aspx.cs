@@ -83,7 +83,7 @@ namespace Group_6_IT114L_MP
         // Compute for total
         protected void QuantityTB_TextChanged(object sender, EventArgs e)
         {
-            double Quantity = int.Parse(QuantityTB.Text);
+            int Quantity = int.Parse(QuantityTB.Text);
 
             if (MovieDDL.SelectedValue == Name1.Text)
                 Total.Text = Convert.ToString(Quantity * 500);

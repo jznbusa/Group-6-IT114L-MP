@@ -23,7 +23,7 @@ namespace Group_6_IT114L_MP
         protected void Login_Click(object sender, EventArgs e)
         {
             using (OleDbConnection xConn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; " +
-                "Data Source=" + Server.MapPath("~/AppData/Cinema.mdb")))
+               "Data Source=" + Server.MapPath("~/AppData/Cinema.mdb")))
             {
                 using (OleDbCommand xCmd = new OleDbCommand())
                 {
@@ -32,11 +32,11 @@ namespace Group_6_IT114L_MP
                     xCmd.CommandText = "SELECT * FROM [Users] WHERE xEmail = '"
                         + Email.Text + "' AND xPassword = '" + Passw.Text + "';";
                     OleDbDataReader xReader = xCmd.ExecuteReader();
-                    
-                    if (xReader.HasRows)
+
+                    if (xReader.HasRows) // go to user's webform
                     {
                         xReader.Read();
-                        Session["usermail"] = xReader["xEmail"].ToString(); 
+                        Session["usermail"] = xReader["xEmail"].ToString();
                         Response.Redirect("Movies.aspx");
                     }
                     else
@@ -46,7 +46,6 @@ namespace Group_6_IT114L_MP
                     xReader.Close();
                 }
             }
-            
         }
     }
 }
