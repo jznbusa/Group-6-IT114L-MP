@@ -8,25 +8,27 @@
             </div>
                 <hr />
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="CustomerId" DataSourceID="SqlDataSource1">
+            <HeaderStyle BackColor="#ffcc00" Font-Bold="True" />
             <Columns>
-                <asp:CommandField ShowEditButton="True" />
-                <asp:BoundField DataField="CustomerId" HeaderText="Customer Id" InsertVisible="False" ReadOnly="True" SortExpression="CustomerId" />
+                <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" />
+                <asp:BoundField DataField="CustomerId" HeaderText="CustomerId" InsertVisible="False" ReadOnly="True" SortExpression="CustomerId" Visible="False" />
                 <asp:BoundField DataField="xLastname" HeaderText="Lastname" SortExpression="xLastname" />
                 <asp:BoundField DataField="xFirstname" HeaderText="Firstname" SortExpression="xFirstname" />
                 <asp:BoundField DataField="xEmail" HeaderText="Email" SortExpression="xEmail" />
                 <asp:BoundField DataField="xPassword" HeaderText="Password" SortExpression="xPassword" />
-                <asp:TemplateField HeaderText="xPayment" SortExpression="Payment">
+                <asp:TemplateField HeaderText="Payment" SortExpression="Payment">
                     <EditItemTemplate>
-                        <asp:DropDownList ID="DropDownList1" runat="server">
-                            <asp:ListItem>Cash</asp:ListItem>
-                            <asp:ListItem>Credit Card</asp:ListItem>
+                        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="xPayment" DataValueField="xPayment" SelectedValue='<%# Bind("xPayment") %>'>
+                        <asp:ListItem>Cash</asp:ListItem>
+                        <asp:ListItem>Credit Card</asp:ListItem>
                         </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CinemaConnectionString %>" ProviderName="<%$ ConnectionStrings:CinemaConnectionString.ProviderName %>" SelectCommand="SELECT DISTINCT [xPayment] FROM [Users]"></asp:SqlDataSource>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("xPayment") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="xAddress" HeaderText="xAddress" SortExpression="xAddress" />
+                <asp:BoundField DataField="xAddress" HeaderText="Address" SortExpression="xAddress" />
             </Columns>
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CinemaConnectionString %>" ProviderName="<%$ ConnectionStrings:CinemaConnectionString.ProviderName %>" 
