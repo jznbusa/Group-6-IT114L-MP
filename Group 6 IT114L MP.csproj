@@ -79,6 +79,7 @@
     <Content Include="img\lostcity.jpg" />
     <Content Include="img\turningred.jpg" />
     <Content Include="ManageAcc.aspx" />
+    <Content Include="ManageMovies.aspx" />
     <Content Include="Movies.aspx" />
     <Content Include="CSS\StyleSheet1.css" />
     <Content Include="img\junglecruise.jpg" />
@@ -126,6 +127,13 @@
     </Compile>
     <Compile Include="ManageAcc.aspx.designer.cs">
       <DependentUpon>ManageAcc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageMovies.aspx.cs">
+      <DependentUpon>ManageMovies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageMovies.aspx.designer.cs">
+      <DependentUpon>ManageMovies.aspx</DependentUpon>
     </Compile>
     <Compile Include="master1.Master.cs">
       <DependentUpon>master1.Master</DependentUpon>

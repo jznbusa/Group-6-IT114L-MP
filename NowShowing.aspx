@@ -6,31 +6,19 @@
     <center>
         <h2 class="css-reflects">NOW SHOWING</h2>
     
-        <div class="align">
-            <asp:Image ID="Image1" runat="server" ImageUrl="~/img/spiderman.jpg" CssClass="shadow" /> 
-            <br /><br />
-            <asp:Label ID="Name1" runat="server" CssClass="label">Spider-Man: No Way Home</asp:Label><br />
-            <asp:Label ID="Time1" runat="server" CssClass="label">1:00 PM - 3:30 PM</asp:Label><br />
-            <asp:Label ID="Date1" runat="server" CssClass="label">FEBRUARY 20, 2022</asp:Label><br /><br />
-        </div>
-        
-        <div class="align">
-            <asp:Image ID="Image2" runat="server" ImageUrl="~/img/junglecruise.jpg" CssClass="shadow" />
-            <br /><br />
-            <asp:Label ID="Name2" runat="server" CssClass="label">Jungle Cruise</asp:Label> <br />
-            <asp:Label ID="Time2" runat="server" CssClass="label">3:30 PM - 5:10 PM</asp:Label> <br />
-            <asp:Label ID="Date2" runat="server" CssClass="label">FEBRUARY 20, 2022 </asp:Label><br /><br />
-        </div>
+        <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource2" ForeColor="White" AutoGenerateColumns="False" DataKeyNames="MovID">
+            <HeaderStyle BackColor="#ffcc00" Font-Bold="True" ForeColor="Black"/>
+            <Columns>
+                <asp:BoundField DataField="MovID" HeaderText="MovID" InsertVisible="False" ReadOnly="True" SortExpression="MovID" Visible="False" />
 
-        <div class="align">
-            <asp:Image ID="Image3" runat="server" ImageUrl="~/img/lovelybones.jpg" CssClass="shadow" />
-            <br /><br />
-            <asp:Label ID="Name3" runat="server" CssClass="label">The Lovely Bones</asp:Label><br />
-            <asp:Label ID="Time3" runat="server" CssClass="label">5:10 PM - 7:30 PM</asp:Label><br />
-            <asp:Label ID="Date3" runat="server" CssClass="label">FEBRUARY 20, 2022</asp:Label> <br /><br />
-            
-        </div>
-    
+                <asp:BoundField DataField="Mov_name" HeaderText="Movie" SortExpression="Mov_name" />
+                <asp:BoundField DataField="Mov_time" HeaderText="Time" SortExpression="Mov_time" />
+                <asp:BoundField DataField="Mov_date" HeaderText="Date" SortExpression="Mov_date" />
+                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+            </Columns>
+        </asp:GridView>
+
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CinemaConnectionString %>" ProviderName="<%$ ConnectionStrings:CinemaConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Movies]"></asp:SqlDataSource>
 
         <div>
             <h2 class="css-reflects">Buy Ticket</h2>
@@ -40,20 +28,22 @@
                 
                 <asp:Label ID="Label4" runat="server" Text="Movie" CssClass="labelz"></asp:Label>
                 <asp:Label ID="MovieWarning" runat="server"><span style="color: red;">*</span></asp:Label>
-                <asp:DropDownList ID="MovieDDL" runat="server" CssClass="dropdown">
-                    <asp:ListItem>Select a movie</asp:ListItem>
-                    <asp:ListItem>Spider-Man: No Way Home</asp:ListItem>
-                    <asp:ListItem>Jungle Cruise</asp:ListItem>
-                    <asp:ListItem>The Lovely Bones</asp:ListItem>
+                <asp:DropDownList ID="MovieDDL" runat="server" CssClass="dropdown" DataSourceID="SqlDataSource1" DataTextField="Mov_name" DataValueField="Mov_name">
                 </asp:DropDownList>
 
-                <br />
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CinemaConnectionString %>" ProviderName="<%$ ConnectionStrings:CinemaConnectionString.ProviderName %>" SelectCommand="SELECT [Mov_name] FROM [Movies]"></asp:SqlDataSource>
                 <asp:Label ID="Label3" runat="server" Text="Quantity [1-20]" CssClass="labelz"></asp:Label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="QuantityTB"><span style="color: red;">*</span></asp:RequiredFieldValidator>
                 <asp:TextBox ID="QuantityTB" runat="server" CssClass="textbox" OnTextChanged="QuantityTB_TextChanged"></asp:TextBox>
                 <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="QuantityTB" Type="Integer" MaximumValue="20" MinimumValue="1">
                     <span style="color: red;">Invalid value</span></asp:RangeValidator>
             <br />
+                <asp:Label ID="Label5" runat="server" Text="Time:" CssClass="labelz"></asp:Label>
+                <asp:Label ID="Time" runat="server" Text="00:00" CssClass="labelz"></asp:Label>
+                <br />
+                <asp:Label ID="Label6" runat="server" Text="Date:" CssClass="labelz"></asp:Label>
+                <asp:Label ID="Date" runat="server" Text="1/1/2022" CssClass="labelz"></asp:Label>
+                <br />
             <center>
                 <div class="rectangle">
                     <asp:Label ID="Label1" runat="server" Text="SCREEN"></asp:Label>

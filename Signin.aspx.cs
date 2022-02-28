@@ -24,7 +24,7 @@ namespace Group_6_IT114L_MP
         {
             if (Email.Text == "AdminTest@gmail.com" || Passw.Text == "12345")
             {
-                Response.Redirect("Movies.aspx");
+                Response.Redirect("ManageMovies.aspx");
             }
             else // Check if user account exists
             {

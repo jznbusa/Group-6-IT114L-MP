@@ -13,7 +13,7 @@
         <nav id="nav">
     <ul>  
         <li><a href="ViewSales.aspx">VIEW SALES</a></li>
-        <li><a href="Movies.aspx">MANAGE MOVIES</a></li>  
+        <li><a href="ManageMovies.aspx">MANAGE MOVIES</a></li>  
         <li><a href="ManageAcc.aspx">MANAGE ACCOUNTS</a></li>  
         <li><a href="FirstPage.aspx">SIGN OUT</a></li>
     </ul>

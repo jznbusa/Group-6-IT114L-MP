@@ -21,28 +21,37 @@ namespace Group_6_IT114L_MP
             }
         }
 
-        private string MovieTime()
+        protected void QuantityTB_TextChanged(object sender, EventArgs e)
         {
-            if (MovieDDL.SelectedValue == Name1.Text)
-                return Time1.Text;
-            else if (MovieDDL.SelectedValue == Name2.Text)
-                return Time2.Text;
-            else if (MovieDDL.SelectedValue == Name3.Text)
-                return Time3.Text;
-            else
-                return "";
+            MovieInfo();
         }
-
-        private DateTime MovieDate()
+        private void MovieInfo()
         {
-            if (MovieDDL.SelectedValue == Name1.Text)
-                return Convert.ToDateTime(Date1.Text);
-            else if (MovieDDL.SelectedValue == Name2.Text)
-                return Convert.ToDateTime(Date2.Text);
-            else if (MovieDDL.SelectedValue == Name3.Text)
-                return Convert.ToDateTime(Date3.Text);
-            else
-                return DateTime.Now;
+            int Quantity = int.Parse(QuantityTB.Text);
+
+            using (OleDbConnection xConn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; " +
+                    "Data Source=" + Server.MapPath("~/AppData/Cinema.mdb")))
+            {
+                using (OleDbCommand xCmd = new OleDbCommand())
+                {
+                    xCmd.Connection = xConn;
+                    xConn.Open();
+                    xCmd.CommandText = "SELECT * FROM [Movies] WHERE Mov_name = '"
+                        + MovieDDL.SelectedValue + "';";
+                    OleDbDataReader xReader = xCmd.ExecuteReader();
+
+                    if (xReader.HasRows)
+                    {
+                        xReader.Read();
+
+                        Time.Text = xReader["Mov_time"].ToString();
+                        Date.Text = xReader["Mov_date"].ToString();
+                        int Price = int.Parse(xReader["Price"].ToString());
+                        Total.Text = Convert.ToString(Quantity * Price); // compute total
+                    }
+                    xReader.Close();
+                }
+            }
         }
 
         private void AddtoDatabase()
@@ -66,8 +75,8 @@ namespace Group_6_IT114L_MP
                                 "VALUES (@User_email, @Mov_name, @Mov_time, @Mov_date, @Parkingspace, @Total)";
                             xCmd.Parameters.AddWithValue("@User_email", Session["usermail"].ToString());
                             xCmd.Parameters.AddWithValue("@Mov_name", MovieDDL.SelectedValue);
-                            xCmd.Parameters.AddWithValue("@Mov_time", MovieTime());
-                            xCmd.Parameters.AddWithValue("@Mov_date", MovieDate());
+                            xCmd.Parameters.AddWithValue("@Mov_time", Time.Text);
+                            xCmd.Parameters.AddWithValue("@Mov_date", Date.Text);
                             xCmd.Parameters.AddWithValue("@Parkingspace", selectedItems);
                             xCmd.Parameters.AddWithValue("@Total", int.Parse(Total.Text));
                             xConn.Open();
@@ -80,21 +89,7 @@ namespace Group_6_IT114L_MP
             Reset(); //Clear values
         }
 
-        // Compute for total
-        protected void QuantityTB_TextChanged(object sender, EventArgs e)
-        {
-            int Quantity = int.Parse(QuantityTB.Text);
-
-            if (MovieDDL.SelectedValue == Name1.Text)
-                Total.Text = Convert.ToString(Quantity * 500);
-
-            else if (MovieDDL.SelectedValue == Name2.Text)
-                Total.Text = Convert.ToString(Quantity * 550);
-            
-            else if (MovieDDL.SelectedValue == Name3.Text)
-                Total.Text = Convert.ToString(Quantity * 600);
-            
-        }
+        
 
         // Limit the selection of parking lots based on the amount of ticket
         protected void ParkingLotCBL_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,5 +136,6 @@ namespace Group_6_IT114L_MP
                 AddtoDatabase();
         }
 
+        
     }
 }
