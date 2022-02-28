@@ -22,6 +22,7 @@ namespace Group_6_IT114L_MP
         }
         protected void Purchase_Click(object sender, EventArgs e)
         {
+            // add to purchase table
             using (OleDbConnection xConn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; " +
                 "Data Source=" + Server.MapPath("~/AppData/Cinema.mdb")))
             {
@@ -29,8 +30,24 @@ namespace Group_6_IT114L_MP
                 {
                     xCmd.Connection = xConn;
                     xConn.Open();
-                    xCmd.CommandText = "DELETE FROM MovieChoice " +
+                    string insert = "INSERT INTO Purchase (Total) VALUES (@Total);";
+                    xCmd.CommandText = insert;
+                    xCmd.Parameters.AddWithValue("@Total", Total.Text);
+
+                    xCmd.ExecuteNonQuery();
+                }
+            }
+            // delete from cart
+            using (OleDbConnection xConn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; " +
+                "Data Source=" + Server.MapPath("~/AppData/Cinema.mdb")))
+            {
+                using (OleDbCommand xCmd = new OleDbCommand())
+                {
+                    xCmd.Connection = xConn;
+                    xConn.Open();
+                    string del = "DELETE FROM MovieChoice " +
                         "WHERE User_email = '" + Session["usermail"].ToString() + "';";
+                    xCmd.CommandText = del;
                     xCmd.ExecuteNonQuery();
                 }
             }
@@ -52,7 +69,7 @@ namespace Group_6_IT114L_MP
                 {
                     xCmd.Connection = xConn;
                     xConn.Open();
-                    xCmd.CommandText = "SELECT Total FROM MovieChoice " +
+                    xCmd.CommandText = "SELECT SUM(Total) AS Total FROM MovieChoice " +
                         "WHERE User_email = '" + Session["usermail"].ToString() + "';";
                     OleDbDataReader xReader = xCmd.ExecuteReader();
                     if (xReader.HasRows)

@@ -14,7 +14,9 @@
                     <asp:BoundField DataField="Parkingspace" HeaderText="Parking Space" SortExpression="Parkingspace" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CinemaConnectionString2 %>" ProviderName="<%$ ConnectionStrings:CinemaConnectionString2.ProviderName %>" SelectCommand="SELECT [TicketID], [Mov_name], [Mov_time], [Mov_date], [Parkingspace], [Total] FROM [MovieChoice] WHERE ([User_email] = ?)">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CinemaConnectionString2 %>" 
+                ProviderName="<%$ ConnectionStrings:CinemaConnectionString2.ProviderName %>" 
+                SelectCommand="SELECT [TicketID], [Mov_name], [Mov_time], [Mov_date], [Parkingspace], [Total] FROM [MovieChoice] WHERE ([User_email] = ?)">
                 <SelectParameters>
                     <asp:SessionParameter Name="User_email" SessionField="usermail" Type="String" />
                 </SelectParameters>
